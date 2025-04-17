@@ -16,7 +16,7 @@ class Pet:
 
     def sleep(self):
         if self.energy >= 10:
-            print(f"{self.name} is already fully rested. 😴")
+            print(f"{self.name} is fully energized and ready to do things! 🎉")
         else:
             self.energy = min(10, self.energy + 5)
             print(f"{self.name} had a refreshing nap! 💤")
@@ -24,7 +24,7 @@ class Pet:
     def play(self):
         if self.energy < 2:
             print(f"{self.name} is too tired to play. Let them sleep! 😓")
-        elif self.hunger > 8:
+        elif self.hunger >= 8:
             print(f"{self.name} is too hungry to play. Please feed them! 🍽️")
         else:
             self.energy = max(0, self.energy - 2)
@@ -35,6 +35,10 @@ class Pet:
     def train(self, trick):
         if self.energy < 3:
             print(f"{self.name} is too tired to learn new tricks. 😴")
+        elif self.hunger >= 8:
+            print(f"{self.name} is too hungry to concentrate on training. 🍽️")
+        elif trick.lower() in [t.lower() for t in self.tricks]:  # Case-insensitive check
+            print(f"{self.name} already knows how to {trick}! 🐶")
         else:
             self.tricks.append(trick)
             self.energy = max(0, self.energy - 3)
@@ -58,9 +62,19 @@ class Pet:
         # Mood feedback
         if self.hunger >= 8:
             print(f"⚠️ {self.name} is starving! Please feed them.")
+        elif self.hunger >= 5:
+            print(f"{self.name} seems a bit hungry. 🍽️")
+        elif self.hunger <= 2:
+            print(f"{self.name} is well fed and satisfied. 😊")
+
         if self.energy <= 2:
             print(f"⚠️ {self.name} is very tired.")
+
         if self.happiness <= 3:
             print(f"😢 {self.name} looks sad. Play with them!")
-        if self.hunger <= 3 and self.energy >= 7 and self.happiness >= 7:
+
+        # ✅ New boredom check
+        if self.happiness >= 7 and self.energy >= 5 and self.hunger <= 5:
             print(f"😊 {self.name} is feeling great today!")
+        elif self.happiness <= 5 and self.energy >= 5:
+            print(f"{self.name} might be getting bored... try playing with them! 🎾")

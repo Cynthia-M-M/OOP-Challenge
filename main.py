@@ -1,11 +1,11 @@
 from pet import Pet
 
 def main():
-    print("🐾 Welcome to your Digital Pet Simulator!")
-    name = input("What do you want to name your pet? ")
+    print("🐾 Welcome to My Digital Pet Simulator!")
+    name = input("My Pet Name is? ")
     pet = Pet(name)
 
-    print(f"🎉 Great! You've adopted {name}. Type 'help' for commands.\n")
+    print(f"\n🎉 Great! I Have adopted {name}. Type 'help' for commands.\n")
 
     while True:
         command = input("Type a command (eat, play, sleep, train, status, tricks, help, quit): ").strip().lower()
