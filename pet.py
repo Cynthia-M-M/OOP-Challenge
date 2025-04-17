@@ -77,4 +77,8 @@ class Pet:
         if self.happiness >= 7 and self.energy >= 5 and self.hunger <= 5:
             print(f"😊 {self.name} is feeling great today!")
         elif self.happiness <= 5 and self.energy >= 5:
+<<<<<<< HEAD
             print(f"{self.name} might be getting bored... try playing with them! 🎾")
+=======
+            print(f"{self.name} might be getting bored... try playing with them! 🎾")
+>>>>>>> f9901c32421a14861681a902e7a870ea603ecf7e
